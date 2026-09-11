@@ -1,3 +1,4 @@
+# Basic Dockerfile for a Spring Boot application
 FROM eclipse-temurin:21-jdk
 
 WORKDIR /app
