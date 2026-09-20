@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-spring
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: hello-spring
+
+  template:
+    metadata:
+      labels:
+        app: hello-spring
+
+    spec:
+      containers:
+        - name: hello-spring
+          image: codewithps/hello-spring:latest
+          imagePullPolicy: Always
+
+          ports:
+            - containerPort: 8080
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-spring-service
+
+spec:
+  selector:
+    app: hello-spring
+
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+      nodePort: 30080
+
+  type: NodePort
