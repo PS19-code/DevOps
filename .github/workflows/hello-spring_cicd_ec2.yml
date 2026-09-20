@@ -1,12 +1,12 @@
-name: Hello Spring Boot App to AWS EKS
+name: Hello Spring Boot App to AWS EC2
 
 on:
   workflow_dispatch:
   push:
     branches:
       - main
-    paths:
-      - "springboot/hello-spring/**"
+    #paths:
+      #- "springboot/hello-spring/**"
 
 jobs:
     build-test:
